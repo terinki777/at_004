@@ -6,19 +6,15 @@ public class Application {
         //Программа должна создавать два экземпляра класса Kotik
         Kotik kot = new Kotik(1, "Rich", 15, "meooow");
         Kotik cat = new Kotik(2, "Jess", 10, "meoow");
-
-        //kot.eat(sat);
         //Метод liveAnotherDay() должен выводить на экран 24 строки.
         kot.liveAnotherDay();
-
 
         System.out.println();
         //Программа должна выводить на экран результат сравнения переменных meow у созданных объектов.
         if (kot.getMeow() == cat.getMeow())
-            System.out.println("Мы мяукаем одинаково");
+            System.out.println(kot.getName()+" и "+cat.getName()+" мяукают одинаково");
         else
-            System.out.println("Мы мяукаем по разному");
-
+            System.out.println(kot.getName()+" и "+cat.getName()+" мяукают по разному");
         //Программа должна выводить на экран количество созданных объектов.
         System.out.println("Количество котиков: " + Kotik.getCount());
       

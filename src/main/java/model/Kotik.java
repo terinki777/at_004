@@ -30,7 +30,6 @@ public class Kotik {
 
     //Метод liveAnotherDay() должен выводить на экран 24 строки.
     public void liveAnotherDay() {
-//int sat = (int) (Math.random() * 6) + 1;
         for (int i = 1; i <= 24; i++) {
             int rand = (int) (Math.random() * 5) + 1;
             System.out.println(" День " + i + ":");
