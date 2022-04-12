@@ -9,7 +9,6 @@ public class Kotik {
     private String meow;
     private int satiety; //сытость
 
-
     public Kotik() {
         count++;
     }
@@ -30,8 +29,33 @@ public class Kotik {
     }
 
     //Метод liveAnotherDay() должен выводить на экран 24 строки.
-    public static void liveAnotherDay() {
-//int a = (int) Math.random();
+    public void liveAnotherDay() {
+//int sat = (int) (Math.random() * 6) + 1;
+        for (int i = 1; i <= 24; i++) {
+            int rand = (int) (Math.random() * 5) + 1;
+            System.out.println(" День " + i + ":");
+            switch (rand) {
+                case 1:
+                    eat();
+                    break;
+                case 2:
+                    play();
+                    break;
+                case 3:
+                    sleep();
+                    break;
+                case 4:
+                    chaseMouse();
+                    break;
+                case 5:
+                    song();
+                    break;
+                default:
+                    System.out.println("Не лезьте ко мне!");
+                    break;
+            }
+
+        }
     }
 
     public static int getCount() {
@@ -40,35 +64,76 @@ public class Kotik {
 
     public void eat(int satiety) {
         this.satiety += satiety;
+        System.out.println("Котик кушает");
     }
 
     public void eat(int satiety, String nameFood) {
-        this.satiety = satiety;
+        this.satiety += satiety;
+        System.out.println("Котик кушает " + nameFood);
     }
 
     public boolean eat() {
-        return eat();
+        if (satiety <= 1) {
+            eat(1, "");
+            System.out.println("Котик кушает");
+            return true;
+        } else
+            return false;
+
     }
 
     //Методы поведения котика (play(), sleep(), chaseMouse(), и. т.д) должны иметь возвращаемый тип данных boolean.
     public boolean play() {
-        return false;
+        if (satiety > 1) {
+            System.out.println("Котик " + name.toUpperCase() + " играет с игрушками.");
+            satiety--;
+            return true;
+        } else {
+            System.out.println("Котик " + name.toUpperCase() + " не хочет играть, он хочет есть.");
+            satiety++;
+            System.out.println("Кушай котик " + name.toUpperCase());
+            play();
+            return false;
+        }
     }
 
     public boolean sleep() {
-        return false;
+        if (satiety > 1) {
+            System.out.println("Котик " + name.toUpperCase() + " спит.");
+            satiety--;
+            return true;
+        } else {
+            System.out.println("Котик " + name.toUpperCase() + " не хочет спать, он хочет есть.");
+            satiety++;
+            System.out.println("Кушай котик " + name.toUpperCase());
+            sleep();
+            return false;
+        }
     }
 
     public boolean chaseMouse() {
-        return false;
+        if (satiety > 1) {
+            System.out.println("Котик " + name.toUpperCase() + " ловит мышь.");
+            satiety--;
+            return true;
+        } else {
+            System.out.println("Котик " + name.toUpperCase() + " не хочет ловить мышь, он хочет есть.");
+            satiety++;
+            System.out.println("Кушай котик " + name.toUpperCase());
+            chaseMouse();
+            return false;
+        }
     }
 
     public boolean song() {
         if (satiety > 1) {
-            System.out.println("Kitty " + name.toUpperCase() + " sings...");
+            System.out.println("Котик " + name.toUpperCase() + " поет...");
             return true;
         } else {
-            System.out.println("Kitty " + name.toUpperCase() + " doesn't want to sing. I have eat.");
+            System.out.println("Котик " + name.toUpperCase() + " не хочет петь, он хочет есть.");
+            satiety++;
+            System.out.println("Кушай котик " + name.toUpperCase());
+            song();
             return false;
         }
     }

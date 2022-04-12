@@ -2,16 +2,17 @@ import model.Kotik;
 
 public class Application {
     public static void main(String[] args) {
-        int sat = (int) (Math.random() * 6) + 1;
+        int sat = (int) (Math.random() * 5) + 1;
         //Программа должна создавать два экземпляра класса Kotik
         Kotik kot = new Kotik(1, "Rich", 15, "meooow");
         Kotik cat = new Kotik(2, "Jess", 10, "meoow");
 
-        kot.eat(sat);
+        //kot.eat(sat);
         //Метод liveAnotherDay() должен выводить на экран 24 строки.
-        kot.song();
+        kot.liveAnotherDay();
 
 
+        System.out.println();
         //Программа должна выводить на экран результат сравнения переменных meow у созданных объектов.
         if (kot.getMeow() == cat.getMeow())
             System.out.println("Мы мяукаем одинаково");
