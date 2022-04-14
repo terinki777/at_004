@@ -1,16 +1,21 @@
 package animals;
 
-import animals.interfaces.Fly;
-import animals.interfaces.Run;
-import animals.interfaces.Swim;
-import animals.interfaces.Voice;
-import food.Food;
+import animals.interfaces.*;
+import food.*;
 
-public class Animal implements Run, Swim, Voice, Fly {
+public abstract class Animal implements Run, Swim, Voice, Fly {
+    private int satiety; //сытость
+
     public void eat(Food food) {
-        System.out.println("Покормили: ");
+        System.out.println("Eating:");
         food.getName();
+        if(food instanceof Grass)
+        satiety++;
+        else satiety+=2;
     }
+
+    public abstract String getVoice();
+    public abstract String getName();
 
     public void fly() {
         System.out.println("FLY");
@@ -25,6 +30,10 @@ public class Animal implements Run, Swim, Voice, Fly {
     }
 
     public void voice() {
-        System.out.println("VOICE");
+        //System.out.println("VOICE");
+    }
+
+    public int getSatiety() {
+        return satiety;
     }
 }

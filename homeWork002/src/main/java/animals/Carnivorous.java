@@ -1,4 +1,14 @@
 package animals;
 //плотоядное
-public class Carnivorous extends Animal {
+public abstract class Carnivorous extends Animal {
+    private String name;
+    private String voice;
+    @Override
+    public String getVoice(){
+        return voice;
+    }
+
+    public String getName(){
+        return name;
+    }
 }
