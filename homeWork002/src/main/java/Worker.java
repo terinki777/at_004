@@ -1,8 +1,8 @@
 import animals.*;
+import animals.interfaces.Voice;
 import food.*;
 
 public class Worker {
-    //private static Object Fish = animals.Fish;
     private String name;
 
     public Worker(String name) {
@@ -15,7 +15,7 @@ public class Worker {
         animal.eat(food);
     }
 
-    public void getVoice(Animal animal) {
-        animal.voice();
+    public void getVoice(Voice voice) {
+        voice.voice();
     }
 }
