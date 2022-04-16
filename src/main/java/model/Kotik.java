@@ -28,25 +28,34 @@ public class Kotik {
         this.meow = meow;
     }
 
+    public int getRand() {
+        return (int) (Math.random() * 5) + 1;
+    }
+
     //Метод liveAnotherDay() должен выводить на экран 24 строки.
     public void liveAnotherDay() {
         for (int i = 1; i <= 24; i++) {
-            int rand = (int) (Math.random() * 5) + 1;
+            int rand = getRand();
             System.out.println(" День " + i + ":");
             switch (rand) {
                 case 1:
+                    satiety--;
                     eat();
                     break;
                 case 2:
+                    satiety--;
                     play();
                     break;
                 case 3:
+                    satiety--;
                     sleep();
                     break;
                 case 4:
+                    satiety--;
                     chaseMouse();
                     break;
                 case 5:
+                    satiety--;
                     song();
                     break;
                 default:
@@ -61,24 +70,25 @@ public class Kotik {
         return count;
     }
 
-    public void eat(int satiety) {
+    public boolean eat(int satiety) {
         this.satiety += satiety;
         System.out.println("Котик кушает");
+        return true;
     }
 
-    public void eat(int satiety, String nameFood) {
+    public boolean eat(int satiety, String nameFood) {
         this.satiety += satiety;
         System.out.println("Котик кушает " + nameFood);
+        return true;
     }
 
     public boolean eat() {
-        if (satiety <= 1) {
-            eat(1, "");
-            System.out.println("Котик кушает");
-            return true;
-        } else
+        if (satiety >= 10) {
+            System.out.println("Котик сытый");
             return false;
-
+        }
+        eat(getRand(), "");
+        return true;
     }
 
     //Методы поведения котика (play(), sleep(), chaseMouse(), и. т.д) должны иметь возвращаемый тип данных boolean.
@@ -89,8 +99,7 @@ public class Kotik {
             return true;
         } else {
             System.out.println("Котик " + name.toUpperCase() + " не хочет играть, он хочет есть.");
-            satiety++;
-            System.out.println("Кушай котик " + name.toUpperCase());
+            eat();
             play();
             return false;
         }
@@ -103,8 +112,7 @@ public class Kotik {
             return true;
         } else {
             System.out.println("Котик " + name.toUpperCase() + " не хочет спать, он хочет есть.");
-            satiety++;
-            System.out.println("Кушай котик " + name.toUpperCase());
+            eat();
             sleep();
             return false;
         }
@@ -117,8 +125,7 @@ public class Kotik {
             return true;
         } else {
             System.out.println("Котик " + name.toUpperCase() + " не хочет ловить мышь, он хочет есть.");
-            satiety++;
-            System.out.println("Кушай котик " + name.toUpperCase());
+            eat();
             chaseMouse();
             return false;
         }
@@ -130,8 +137,7 @@ public class Kotik {
             return true;
         } else {
             System.out.println("Котик " + name.toUpperCase() + " не хочет петь, он хочет есть.");
-            satiety++;
-            System.out.println("Кушай котик " + name.toUpperCase());
+            eat();
             song();
             return false;
         }
