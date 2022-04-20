@@ -110,3 +110,20 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
+
+!.idea
+.idea/.gitignore
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+homeWork002/src/
+homeWork003/pom.xml
+homeWork003/src/
+src/main/java/Worker.java
+src/main/java/Zoo.java
+src/main/java/animals/
+src/main/java/food/
+src/main/resources/
+src/test/
+!/.idea/
