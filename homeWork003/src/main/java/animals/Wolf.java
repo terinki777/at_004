@@ -5,6 +5,8 @@ import animals.interfaces.Voice;
 import food.Food;
 import food.Grass;
 
+import java.util.Objects;
+
 public class Wolf extends Carnivorous implements Voice, Run {
     private String name;
     private String voice;
@@ -43,5 +45,24 @@ public class Wolf extends Carnivorous implements Voice, Run {
     @Override
     public void run() {
         System.out.println("My name is " + name + " and i can RUN fast");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || o.getClass() != getClass()) {
+            return false;
+        }
+
+        Wolf wolf = (Wolf) o;
+
+        return wolf.name == this.name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
     }
 }

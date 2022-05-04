@@ -16,7 +16,7 @@ public class Herbivore extends Animal {
         if (food instanceof Meat) {
             throw new WrongFoodException("Herbivore does not eat this");
         } else {
-            System.out.println(getName());
+            System.out.print(getName()+" ");
             super.eat(food);
         }
     }

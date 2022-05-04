@@ -3,6 +3,8 @@ package animals;
 import animals.interfaces.*;
 import food.*;
 
+import java.util.Objects;
+
 public class Duck extends Herbivore implements Voice, Swim, Fly {
     public String name;
     private String voice;
@@ -46,5 +48,24 @@ public class Duck extends Herbivore implements Voice, Swim, Fly {
 
     public void fly() {
         System.out.println("My name is " + name + " and i can FLY");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || o.getClass() != getClass()) {
+            return false;
+        }
+
+        Duck duck = (Duck) o;
+
+        return duck.name == this.name;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(name);
     }
 }

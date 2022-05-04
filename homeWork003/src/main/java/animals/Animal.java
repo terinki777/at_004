@@ -13,21 +13,12 @@ public abstract class Animal {
     }
 
     public void eat(Food food) {
-        System.out.println("Eating: ");
+        System.out.print("Eating: ");
         food.getName();
         if (food instanceof Grass)
             satiety++;
         else satiety += 2;
     }
-
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (getClass() != o.getClass()) return false;
-//        Animal animal = (Animal) o;
-//        return name == animal.getName();
-//    }
-
 
     public int getSatiety() {
         return satiety;

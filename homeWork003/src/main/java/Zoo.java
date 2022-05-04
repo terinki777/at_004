@@ -22,36 +22,36 @@ public class Zoo {
 //        pond[1] = fish;
 //        pond[2] = seal;
 
-        fish.eat(meat);
-        System.out.println();
-
-        duck.eat(grass);
-        System.out.println();
-
-        worker.feed(tiger, grass);
-        System.out.println();
-        worker.feed(tiger, meat);
-        System.out.println();
-
-        tiger.eat(meat);
-        System.out.println();
-
-        worker.feed(duck, grass);
-        System.out.println();
-
-        worker.getVoice(duck);
-        worker.getVoice(tiger);
-        worker.getVoice(seal);
-        System.out.println();
+//        fish.eat(meat);
+//        System.out.println();
+//
+//        duck.eat(grass);
+//        System.out.println();
+//
+//        worker.feed(tiger, grass);
+//        System.out.println();
+//        worker.feed(tiger, meat);
+//        System.out.println();
+//
+//        tiger.eat(meat);
+//        System.out.println();
+//
+//        worker.feed(duck, grass);
+//        System.out.println();
+//
+//        worker.getVoice(duck);
+//        worker.getVoice(tiger);
+//        worker.getVoice(seal);
+//        System.out.println();
 
 //        System.out.println("MASSIVE POND:");
 //        for (Swim p : pond) {
 //            p.swim();
 //        }
 
-        System.out.println("Duck satiety: " + duck.getSatiety());
-        System.out.println("Tiger satiety: " + tiger.getSatiety());
-        System.out.println();
+//        System.out.println("Duck satiety: " + duck.getSatiety());
+//        System.out.println("Tiger satiety: " + tiger.getSatiety());
+//        System.out.println();
 
         System.out.println("---------AVIARY---------------");
         Aviary<Herbivore> aviaryHerbivore = new Aviary<Herbivore>(BIGGEST);
@@ -60,7 +60,7 @@ public class Zoo {
         aviaryHerbivore.addAnimal(duck);
         aviaryHerbivore.addAnimal(bull);
         aviaryHerbivore.addAnimal(el);
-
+        System.out.println();
         aviaryCarnivorous.addAnimal(tiger);
         aviaryCarnivorous.addAnimal(seal);
         aviaryCarnivorous.addAnimal(fish);
@@ -68,20 +68,24 @@ public class Zoo {
 
         System.out.println();
         aviaryCarnivorous.viewAllAnimalInAviary();
+        System.out.println();
         aviaryHerbivore.viewAllAnimalInAviary();
+        System.out.println();
         aviaryHerbivore.removeAnimal(el);
         aviaryHerbivore.viewAllAnimalInAviary();
-        //aviary.removeAnimal(bull);
-        System.out.println("----------FIND----------");
+        System.out.println();
+        System.out.println("----------FIND in AVIARY----------");
         aviaryHerbivore.findAnimalInAviary("Mitchel");
         aviaryCarnivorous.findAnimalInAviary("Bill");
+        System.out.println();
+        System.out.println("----------EXCEPTION----------");
         try {
             duck.eatEx(meat);
         } catch (WrongFoodException e) {
             System.out.println(e.getMessage());
         }
         try {
-            tiger.eatEx(grass);
+            tiger.eatEx(meat);
         } catch (WrongFoodException e) {
             System.out.println(e.getMessage());
         }

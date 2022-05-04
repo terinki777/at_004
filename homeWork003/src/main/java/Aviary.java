@@ -16,9 +16,9 @@ public class Aviary<T extends Animal> {
         this.animal = animal;
         if (aviarySize.compareTo(animal.getAviarySize()) >= 0) {
             aviary.add(animal);
-            System.out.println("[ADD] " + animal.getClass().getSimpleName() + " " + animal.getName() + " ADD in aviary " + animal.getClass().getSuperclass().getSimpleName());
+            System.out.println("[ADD|OK] " + animal.getClass().getSimpleName() + " " + animal.getName() + " ADD in aviary " + animal.getClass().getSuperclass().getSimpleName());
         } else
-            System.out.println("[ADD] " + animal.getClass().getSimpleName() + " " + animal.getName() + " NOT ADDED (BIG for this aviary)");
+            System.out.println("[ADD|X] " + animal.getClass().getSimpleName() + " " + animal.getName() + " NOT ADDED (BIG for this aviary)");
     }
 
     public void removeAnimal(T animal) {
@@ -38,7 +38,7 @@ public class Aviary<T extends Animal> {
 
     public Animal findAnimalInAviary(String name) {
         for (Animal p : aviary) {
-            if (p.getName() == name) {
+            if (p.getName().equals(name)) {
                 System.out.println("[FIND] Animal FOUND: " + p);
                 return p;
             }
