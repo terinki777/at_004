@@ -1,3 +1,5 @@
+//import calculator.Calc;
+package calculator;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,6 +28,8 @@ public class CalcTest {
 
                 {50000, "*", "5", "10000"},//граничные значения
                 {-10000.1, "+", "-10000", "-0.1"},//граничные значения
+
+                {4.68, "-", "10.23", "5.55"}
 
         };
 

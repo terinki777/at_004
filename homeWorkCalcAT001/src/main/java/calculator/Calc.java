@@ -1,3 +1,7 @@
+package calculator;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Calc {
     private static double ans;
@@ -24,28 +28,33 @@ public class Calc {
             switch (action) {
                 case "+":
                     ans = dOne + dTwo;
-                    System.out.println("Answer = " + ans);
                     break;
                 case "-":
                     ans = dOne - dTwo;
-                    System.out.println("Answer = " + ans);
                     break;
                 case "*":
                     ans = dOne * dTwo;
-                    System.out.println("Answer = " + ans);
                     break;
                 case "/":
                     ans = dOne / dTwo;
-                    System.out.println("Answer = " + ans);
                     break;
                 default:
-                    System.out.println("[ERROR] Unknown operation "+"'"+action+"'");
+                    System.out.println("[ERROR] Unknown operation " + "'" + action + "'");
                     return null;
 
             }
 
         } else System.out.println("[ERROR] Out of range");
 
+        try {
+            ans = new BigDecimal(ans).setScale(2, RoundingMode.HALF_EVEN).doubleValue();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Zero division");
+            return null;
+        }
+
+        System.out.println("ANSWER: "+dOne+" "+action+" "+dTwo+" = " + ans);
         return ans;
     }
 }
