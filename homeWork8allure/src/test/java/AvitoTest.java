@@ -1,4 +1,5 @@
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
@@ -40,6 +41,7 @@ public class AvitoTest {
     @Step("Шаг 1. Открыть сайт Авито")
     public void openSiteAvito() {
         driver.get("https://www.avito.ru/");
+        captureScreenshot(driver);
     }
 
     @Test
@@ -122,14 +124,12 @@ public class AvitoTest {
         params = driver.findElement(By.xpath("//label[@data-marker='delivery-filter']"));
         boolean isSelected = params.isSelected();
         if (isSelected == false) params.click();
-
-        driver.findElement(By.xpath("//div[@class]/button[@data-marker='search-filters/submit-button']")).click();
         captureScreenshot(driver);
+        driver.findElement(By.xpath("//div[@class]/button[@data-marker='search-filters/submit-button']")).click();
     }
 
     @Test
-    @Step("Шаг 7. Проверить, активирован ли чекбокс, и если не активирован – " +
-            "активировать и нажать кнопку “Показать объявления”")
+    @Step("Шаг 7. В выпадающем списке фильтрации выбрать фильтрацию по убыванию цены.")
     public void filteringByDescendingPrice() {
         driver.get("https://www.avito.ru/");
         Select selectCategory = new Select(driver.findElement(By.id("category")));
@@ -197,9 +197,14 @@ public class AvitoTest {
         List<WebElement> price = driver.findElements(By.xpath("//div[starts-with" +
                 "(@class,'iva-item-priceStep')]"));
         for (int i = 0; i < 3; ++i) {
-            System.out.println(title.get(i).getText());
-            System.out.println(price.get(i).getText());
+            String attachment = "Title: " + title.get(i).getText() + "\nPrice: " + price.get(i).getText();
+            System.out.println(attachment);
+            Allure.addAttachment("Title&Price:", attachment);
         }
+
+        params = driver.findElement(By.xpath("//div[@class]/select[option" +
+                "[contains(text(),'Дороже')]]"));
+        js.executeScript("arguments[0].scrollIntoView();", params);
         captureScreenshot(driver);
     }
 
