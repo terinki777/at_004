@@ -11,11 +11,12 @@ public class Worker {
 
     //покормить любое животное любой едой. У метода должно быть два параметра – животное и еда.
     public void feed(Animal animal, Food food) {
-        System.out.println("Worker " + name + " feeding a " + animal.getName());
+        System.out.println("[Worker][FEEDING] " + name + " feeding a " + animal.getName());
         animal.eat(food);
     }
 
     public void getVoice(Voice voice) {
+        System.out.print("[Worker][VOICE] ");
         voice.voice();
     }
 }

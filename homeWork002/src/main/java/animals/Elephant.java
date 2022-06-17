@@ -2,8 +2,6 @@ package animals;
 
 import animals.interfaces.Run;
 import animals.interfaces.Voice;
-import food.Food;
-import food.Meat;
 
 public class Elephant extends Herbivore implements Voice, Run {
     private String name;
@@ -16,17 +14,6 @@ public class Elephant extends Herbivore implements Voice, Run {
 
     public String getName() {
         return name;
-    }
-
-    @Override
-    public void eat(Food food) {
-
-        if (food instanceof Meat) {
-            System.out.println("Elephant " + name + " does not eat this");
-        } else {
-            System.out.println("Elephant " + getName());
-            super.eat(food);
-        }
     }
 
     @Override

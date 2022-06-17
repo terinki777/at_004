@@ -1,7 +1,6 @@
 package animals;
 
 import animals.interfaces.*;
-import food.*;
 
 public class Seal extends Carnivorous implements Voice, Swim {
     private String name;
@@ -12,16 +11,6 @@ public class Seal extends Carnivorous implements Voice, Swim {
         this.voice = voice;
     }
 
-    @Override
-    public void eat(Food food) {
-
-        if (food instanceof Grass) {
-            System.out.println("Seal " + name + " does not eat this");
-        } else {
-            System.out.println("Seal " + getName());
-            super.eat(food);
-        }
-    }
 
     public String getName() {
         return name;
@@ -29,7 +18,7 @@ public class Seal extends Carnivorous implements Voice, Swim {
 
     @Override
     public void voice() {
-        System.out.println("Duck " + name + " say: " + voice);
+        System.out.println("Seal " + name + " say: " + voice);
     }
 
     @Override
